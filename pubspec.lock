@@ -75,33 +75,43 @@ packages:
     version: "0.10.0+2"
   build:
     description:
-      path: "../build/build"
-      relative: true
-    source: path
+      path: build
+      ref: HEAD
+      resolved-ref: "1e3f99c2f50d0f4e01747ebee85870bdb1e708f3"
+      url: "https://github.com/dart-lang/build.git"
+    source: git
     version: "0.11.0-dev"
   build_barback:
     description:
-      path: "../build/build_barback"
-      relative: true
-    source: path
+      path: build_barback
+      ref: HEAD
+      resolved-ref: "1e3f99c2f50d0f4e01747ebee85870bdb1e708f3"
+      url: "https://github.com/dart-lang/build.git"
+    source: git
     version: "0.4.0+2"
   build_compilers:
     description:
-      path: "../build/build_compilers"
-      relative: true
-    source: path
+      path: build_compilers
+      ref: HEAD
+      resolved-ref: "1e3f99c2f50d0f4e01747ebee85870bdb1e708f3"
+      url: "https://github.com/dart-lang/build.git"
+    source: git
     version: "0.0.1-dev"
   build_runner:
     description:
-      path: "../build/build_runner"
-      relative: true
-    source: path
+      path: build_runner
+      ref: HEAD
+      resolved-ref: "1e3f99c2f50d0f4e01747ebee85870bdb1e708f3"
+      url: "https://github.com/dart-lang/build.git"
+    source: git
     version: "0.6.0-dev"
   build_test:
     description:
-      path: "../build/build_test"
-      relative: true
-    source: path
+      path: build_test
+      ref: HEAD
+      resolved-ref: "1e3f99c2f50d0f4e01747ebee85870bdb1e708f3"
+      url: "https://github.com/dart-lang/build.git"
+    source: git
     version: "0.9.0-dev"
   charcode:
     description:

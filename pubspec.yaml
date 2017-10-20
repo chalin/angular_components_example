@@ -20,12 +20,22 @@ transformers:
 - dart_to_js_script_rewriter
 dependency_overrides:
   build_runner:
-    path: ../build/build_runner
+    git:
+      url: https://github.com/dart-lang/build.git
+      path: build_runner
   build:
-    path: ../build/build
+    git:
+      url: https://github.com/dart-lang/build.git
+      path: build
   build_barback:
-    path: ../build/build_barback
+    git:
+      url: https://github.com/dart-lang/build.git
+      path: build_barback
   build_compilers:
-    path: ../build/build_compilers
+    git:
+      url: https://github.com/dart-lang/build.git
+      path: build_compilers
   build_test:
-    path: ../build/build_test
+    git:
+      url: https://github.com/dart-lang/build.git
+      path: build_test
