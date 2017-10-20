@@ -8,9 +8,6 @@ import 'package:build/build.dart';
 import 'package:build_barback/build_barback.dart';
 
 import 'package:build_compilers/build_compilers.dart';
-// import 'package:build_compilers/build_compilers.dart'
-//     hide ModuleBuilder, moduleExtension;
-// import 'package:build_compilers/src/module_config_builder.dart';
 
 import 'package:build_runner/build_runner.dart';
 import 'package:build_test/builder.dart';
@@ -31,17 +28,6 @@ Future main() async {
           .add(new BuildAction(builder, packageNode.name, isOptional: true));
     }
   }
-
-  // for (var packageNode in graph.orderedPackages) {
-  //   buildActions.add(new PackageBuildAction(
-  //       new ModuleConfigBuilder(packageNode.name, 'lib'), packageNode.name,
-  //       isOptional: true));
-  //   if (packageNode == graph.root) {
-  //     buildActions.add(new PackageBuildAction(
-  //         new ModuleConfigBuilder(packageNode.name, 'web'), packageNode.name,
-  //         isOptional: true));
-  //   }
-  // }
 
   addBuilderForAll(new ModuleBuilder(), '.dart');
   addBuilderForAll(new UnlinkedSummaryBuilder(), moduleExtension);
