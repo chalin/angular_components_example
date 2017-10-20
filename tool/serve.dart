@@ -14,11 +14,14 @@ import 'package:build_compilers/build_compilers.dart';
 
 import 'package:build_runner/build_runner.dart';
 import 'package:build_test/builder.dart';
+import 'package:sass_builder/sass_builder.dart';
 import 'package:shelf/shelf_io.dart' as shelf_io;
 
 Future main() async {
   var graph = new PackageGraph.forThisPackage();
-  var buildActions = _angularBuildActions(graph);
+  var buildActions = <BuildAction>[];
+  buildActions.addAll(_sassBuildActions(graph));
+  buildActions.addAll(_angularBuildActions(graph));
   buildActions.add(new BuildAction(new TestBootstrapBuilder(), graph.root.name,
       inputs: ['test/**_test.dart']));
 
@@ -85,6 +88,18 @@ List<BuildAction> _angularBuildActions(PackageGraph graph) {
     for (var package in packages) {
       actions.add(new BuildAction(builder, package));
     }
+  }
+  return actions;
+}
+
+List<BuildAction> _sassBuildActions(PackageGraph graph) {
+  var actions = <BuildAction>[];
+  for (var package in graph.dependentsOf('sass_builder')) {
+    var outputExtension =
+        package.name == 'angular_components' ? '.scss.css' : '.css';
+    actions.add(new BuildAction(
+        new SassBuilder(outputExtension: outputExtension), package.name,
+        inputs: ['**.scss']));
   }
   return actions;
 }
